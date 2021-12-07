@@ -25,6 +25,16 @@ for line in readFrom: #go through every line
         #print(line)
         #re.sub('\s+', ' ',line).strip()
         #line.replace("\t"," ")
+        if "," in line:
+            line = line.replace(",","")
+        if "FR" in line:
+            line = line.replace("FR","")
+        if "SO" in line:
+            line = line.replace("SO","")
+        if "JR" in line:
+            line = line.replace("JR","")
+        if "SR" in line:
+            line = line.replace("SR","")
         for char in line: #for every character in the line
             if char.isdigit():
                 line = line.replace(char, '') #if it is a number remove it
@@ -38,7 +48,7 @@ for line in readFrom: #go through every line
             newDiver = "\t<diver>\n" #xml write out
             newDiver+= "\t\t<lastname>"+line[2]+"</lastname>\n" #write out last name
             newDiver+= "\t\t<firstname>"+line[1]+"</firstname>\n" #writeout first name
-            newDiver+="\t\t<team>"+line[3]+"</team>\n" #write out team
+            newDiver+="\t\t<team>"+line[3][:3]+"</team>\n" #write out team
             newDiver+="\t</diver>\n" #end the diver
             writeOut.write(newDiver) #write out to the file
     lineNum+=1 #increment control
