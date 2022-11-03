@@ -8,9 +8,12 @@ import re
 readFrom = open("divers.htm") #open file
 readFrom = readFrom.read() #read in
 readFrom = readFrom.split("\n") #get each individual line
-#file_name = input("Enter name for the file: ")
+file_name = input("Enter name for the file: ")
 lineNum = 1 #control variable
-writeOut = open("state3a.xml","w") #will be used as the write out file
+writeOut = open(file_name+".xml","w") #will be used as the write out file
+writeOut.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n")#header
+writeOut.write("<divingevent>\n") #denote this is a diving event
+writeOut.write("<eventtitle>"+newFile[:-4]+"</eventtitle>\n") #use file name to make title
 for line in readFrom: #go through every line
     
     line = line.lstrip()
