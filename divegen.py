@@ -13,7 +13,7 @@ lineNum = 1 #control variable
 writeOut = open(file_name+".xml","w") #will be used as the write out file
 writeOut.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n")#header
 writeOut.write("<divingevent>\n") #denote this is a diving event
-writeOut.write("<eventtitle>"+newFile[:-4]+"</eventtitle>\n") #use file name to make title
+writeOut.write("<eventtitle>"+file_name+"</eventtitle>\n") #use file name to make title
 for line in readFrom: #go through every line
     
     line = line.lstrip()
